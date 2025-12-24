@@ -1,5 +1,4 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import "../components/Navbar"; // Ensure Tailwind classes are picked up if they were only used here (unlikely)
 import "./globals.css";
 
 export const metadata = {
@@ -15,11 +14,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body className="antialiased min-h-screen flex flex-col font-sans text-gray-900 bg-white">
-        <Navbar />
-        <main className="flex-grow">
           {children}
-        </main>
-        <Footer />
       </body>
     </html>
   );
