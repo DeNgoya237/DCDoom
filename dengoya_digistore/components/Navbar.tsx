@@ -34,19 +34,19 @@ const Navbar = () => {
 
           {/* Dropdown Content */}
           <div
-            className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 border border-orange-100 transition-all duration-200 transform origin-top-left ${isProductDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible group-hover:visible group-hover:opacity-100 group-hover:scale-100'}`}
+            className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 border border-gray-100 transition-all duration-200 transform origin-top-left ${isProductDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible group-hover:visible group-hover:opacity-100 group-hover:scale-100'}`}
           >
-            <Link href="/products/formation" className="block px-4 py-2 hover:bg-orange-50 hover:text-primary">
+            <Link href="/products/formation" className="block px-4 py-2 hover:bg-gray-50 hover:text-primary">
               Formation et Contenu éducatif
             </Link>
-            <Link href="/products/logiciels" className="block px-4 py-2 hover:bg-orange-50 hover:text-primary">
+            <Link href="/products/logiciels" className="block px-4 py-2 hover:bg-gray-50 hover:text-primary">
               Logiciels et Application
             </Link>
-            <Link href="/products/outils" className="block px-4 py-2 hover:bg-orange-50 hover:text-primary">
+            <Link href="/products/outils" className="block px-4 py-2 hover:bg-gray-50 hover:text-primary">
               Outils et Ressources pour les créatifs
             </Link>
             <div className="border-t border-gray-100 my-1"></div>
-            <Link href="/products" className="block px-4 py-2 hover:bg-orange-50 hover:text-primary font-semibold">
+            <Link href="/products" className="block px-4 py-2 hover:bg-gray-50 hover:text-primary font-semibold">
               Tout voir
             </Link>
           </div>
@@ -59,21 +59,21 @@ const Navbar = () => {
 
       {/* Icons */}
       <div className="flex items-center gap-4">
-        <button className="p-2 hover:bg-orange-100 rounded-full transition-colors text-gray-600">
+        <button className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-600">
           <Search className="w-5 h-5" />
         </button>
-        <Link href="/achats" className="p-2 hover:bg-orange-100 rounded-full transition-colors text-gray-600 relative">
+        <Link href="/achats" className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-600 relative">
           <ShoppingCart className="w-5 h-5" />
           <span className="absolute top-0 right-0 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
         </Link>
-        <Link href="/compte" className="hidden md:flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full font-bold hover:bg-accent transition-colors shadow-md shadow-orange-200">
+        <Link href="/compte" className="hidden md:flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full font-bold hover:bg-accent transition-colors shadow-md shadow-primary/20">
           <User className="w-4 h-4" />
           <span>Login</span>
         </Link>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 hover:bg-orange-100 rounded-lg transition-colors"
+          className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <Menu className="w-6 h-6" />

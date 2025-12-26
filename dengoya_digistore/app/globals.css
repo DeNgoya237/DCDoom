@@ -1,12 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm Spring Sale Palette */
-  --background: #FFF5E1; /* Light Peach/Cream */
-  --foreground: #1F2937; /* Dark Gray for text */
-  --primary: #FF8C00; /* Orange */
-  --secondary: #FACC15; /* Yellow */
-  --accent: #F97316; /* Darker Orange */
+  /* Modern Indigo & Teal Palette */
+  --background: #f8fafc; /* Slate-50 */
+  --foreground: #0f172a; /* Slate-900 */
+
+  --primary: #4f46e5; /* Indigo-600 */
+  --primary-foreground: #ffffff;
+
+  --secondary: #14b8a6; /* Teal-500 */
+  --secondary-foreground: #ffffff;
+
+  --accent: #8b5cf6; /* Violet-500 */
+  --accent-foreground: #ffffff;
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -21,16 +27,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
-/*
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-*/
-/* Disabled dark mode preference to stick to the requested theme */
 
 body {
   background: var(--background);

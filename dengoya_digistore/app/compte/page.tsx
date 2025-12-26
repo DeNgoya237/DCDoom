@@ -5,11 +5,11 @@ import Footer from '@/components/Footer';
 
 export default function AccountPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
 
       <main className="flex-1 flex items-center justify-center p-6">
-        <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-orange-100 border border-gray-100 w-full max-w-md">
+        <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-primary/10 border border-gray-100 w-full max-w-md">
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Bienvenue</h1>
             <p className="text-gray-500">Connectez-vous pour accéder à vos achats.</p>
@@ -43,7 +43,7 @@ export default function AccountPage() {
               </div>
             </div>
 
-            <button type="submit" className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-orange-600 transition-colors flex items-center justify-center gap-2 group">
+            <button type="submit" className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 group">
               Se connecter
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

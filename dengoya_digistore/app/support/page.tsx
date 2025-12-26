@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 
 export default function SupportPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
 
       <main className="flex-1 container mx-auto px-6 py-12">
@@ -20,7 +20,7 @@ export default function SupportPage() {
               <h3 className="font-bold text-xl text-gray-900 mb-6">Informations de contact</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-primary shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -31,7 +31,7 @@ export default function SupportPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-primary shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -42,7 +42,7 @@ export default function SupportPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-primary shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -56,7 +56,7 @@ export default function SupportPage() {
           </div>
 
           {/* Form */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg shadow-orange-50 border border-gray-100">
+          <div className="bg-white p-8 rounded-2xl shadow-lg shadow-primary/10 border border-gray-100">
             <h3 className="font-bold text-xl text-gray-900 mb-6">Envoyez-nous un message</h3>
             <form className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -85,7 +85,7 @@ export default function SupportPage() {
                 <textarea rows={5} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary" placeholder="Comment pouvons-nous vous aider ?"></textarea>
               </div>
 
-              <button type="submit" className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-orange-600 transition-colors flex items-center justify-center gap-2">
+              <button type="submit" className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
                 <Send className="w-5 h-5" />
                 Envoyer le message
               </button>

@@ -15,7 +15,7 @@ export default function CartPage() {
   const total = subtotal + tax;
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
 
       <main className="container mx-auto px-6 py-12 flex-1">
@@ -29,7 +29,7 @@ export default function CartPage() {
           <div className="lg:col-span-2 space-y-4">
             {cartItems.map((item) => (
               <div key={item.id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4">
-                <div className="w-20 h-20 bg-orange-50 rounded-lg flex items-center justify-center text-3xl">
+                <div className="w-20 h-20 bg-gray-50 rounded-lg flex items-center justify-center text-3xl">
                   {item.image}
                 </div>
                 <div className="flex-1">
@@ -77,7 +77,7 @@ export default function CartPage() {
                 </div>
               </div>
 
-              <button className="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-orange-200 hover:bg-orange-600 transition-all flex items-center justify-center gap-2">
+              <button className="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-indigo-700 transition-all flex items-center justify-center gap-2">
                 <CreditCard className="w-5 h-5" />
                 Payer maintenant
               </button>

@@ -3,7 +3,7 @@ import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="bg-white pt-16 pb-8 border-t border-orange-100">
+    <footer className="bg-white pt-16 pb-8 border-t border-gray-100">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
@@ -13,13 +13,13 @@ const Footer = () => {
               Votre plateforme de référence pour l'achat de produits digitaux de qualité. Formation, logiciels, et outils créatifs.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href="#" className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+              <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+              <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+              <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
