@@ -1,105 +1,83 @@
-// Placeholder for Drive image if user provides one, otherwise a stylized div
 import Link from 'next/link';
-import { ArrowRight, Star, ShoppingBag, ShieldCheck, Users } from 'lucide-react';
+import { ArrowRight, Star, ShoppingBag } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { ALL_PRODUCTS, CATEGORIES } from '@/app/lib/data';
 
-// Mock Data for "Latest Products"
-const latestProducts = [
-  { id: 1, name: 'Pack Design Ultime', price: '15,000 FCFA', category: 'Outils' },
-  { id: 2, name: 'Masterclass Dev Web', price: '25,000 FCFA', category: 'Formation' },
-  { id: 3, name: 'Template Pro', price: '10,000 FCFA', category: 'Logiciels' },
-];
+// Get 3 latest products
+const latestProducts = ALL_PRODUCTS.slice(0, 3);
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col font-sans">
       <Navbar />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="container mx-auto px-6 py-12 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Hero Section with Full Background Image */}
+        <section className="relative min-h-[90vh] flex items-center">
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/images/home-bg.jpg')" }}
+          >
+            {/* Overlay for readability */}
+            <div className="absolute inset-0 bg-gray-900/60 mix-blend-multiply"></div>
+          </div>
 
-            {/* Left Column: Text Content */}
-            <div className="lg:col-span-7 space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-bold text-sm">
-                <ShoppingBag className="w-4 h-4" />
-                <span>Nouveautés Disponibles</span>
-              </div>
+          <div className="container relative z-10 mx-auto px-6 py-12 md:py-20">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-tight">
-                Exclusive <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital Sale</span>
-              </h1>
+              {/* Left Column: Text Content */}
+              <div className="lg:col-span-8 space-y-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white backdrop-blur-sm border border-white/20 font-bold text-sm">
+                  <ShoppingBag className="w-4 h-4" />
+                  <span>Nouveautés Disponibles</span>
+                </div>
 
-              <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-                Découvrez notre collection premium de formations, logiciels et ressources créatives pour booster votre carrière et vos projets.
-              </p>
+                <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-tight drop-shadow-lg">
+                  Exclusive <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400">Digital Sale</span>
+                </h1>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/products" className="px-8 py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-indigo-700 hover:scale-105 transition-all flex items-center justify-center gap-2">
-                  Voir les Produits <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link href="/support" className="px-8 py-4 bg-white text-gray-700 font-bold rounded-xl border-2 border-gray-100 hover:border-primary hover:text-primary transition-all flex items-center justify-center">
-                  Nous Contacter
-                </Link>
-              </div>
+                <p className="text-xl text-gray-200 max-w-xl leading-relaxed font-medium drop-shadow-md">
+                  Découvrez notre collection premium de formations, logiciels et ressources créatives pour booster votre carrière et vos projets.
+                </p>
 
-              {/* Trusted Users Block */}
-              <div className="pt-8">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="font-bold text-gray-900 text-lg">Trusted Users</h3>
-                  <div className="flex text-yellow-400">
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <Link href="/products" className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl shadow-xl shadow-indigo-600/30 hover:bg-indigo-500 hover:scale-105 transition-all flex items-center justify-center gap-2 border border-transparent">
+                    Voir les Produits <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link href="/support" className="px-8 py-4 bg-white/10 text-white font-bold rounded-xl border-2 border-white/30 hover:bg-white/20 hover:border-white transition-all flex items-center justify-center backdrop-blur-sm">
+                    Nous Contacter
+                  </Link>
+                </div>
+
+                {/* Trusted Users Block */}
+                <div className="pt-8 border-t border-white/10 mt-8">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="font-bold text-white text-lg">Trusted Users</h3>
+                    <div className="flex text-yellow-400">
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                    </div>
                   </div>
+                  <p className="text-gray-300 text-sm">Over 10K happy users all over the world</p>
                 </div>
-                <p className="text-gray-500 text-sm">Over 10K happy users all over the world</p>
-              </div>
-            </div>
-
-            {/* Right Column: Image & Side Content */}
-            <div className="lg:col-span-5 relative">
-
-              {/* Main Hero Image Wrapper */}
-              <div className="relative z-10 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-[3rem] p-4 shadow-2xl overflow-hidden aspect-[4/5] flex items-end justify-center">
-                {/*
-                  NOTE: The user provided a Drive link for the Home Image:
-                  https://drive.google.com/file/d/1uWWOHB22_1yISVuqkDoqa6eTfpvx5RWl/view?usp=drivesdk
-                  Since we cannot fetch it directly without auth/interactivity, we use a placeholder styling
-                  that matches the reference image (Woman with tablet).
-                */}
-                <div className="absolute inset-0 flex items-center justify-center text-primary/20">
-                  <Users className="w-64 h-64" />
-                </div>
-
-                {/* Placeholder Content simulating the image subject */}
-                <div className="relative z-20 text-center pb-10">
-                  <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-xs mx-auto border border-white">
-                    <ShieldCheck className="w-12 h-12 text-primary mx-auto mb-3" />
-                    <h3 className="font-bold text-gray-800 text-lg">Qualité Garantie</h3>
-                    <p className="text-gray-500 text-sm">Tous nos produits sont vérifiés par des experts.</p>
-                  </div>
-                </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute top-10 right-10 w-20 h-20 bg-accent/30 rounded-full blur-2xl opacity-50"></div>
-                <div className="absolute bottom-10 left-10 w-32 h-32 bg-secondary/30 rounded-full blur-3xl opacity-30"></div>
               </div>
 
-              {/* "Latest Product" Sidebar (Floating or Absolute in reference, but Grid is safer for responsive) */}
-              <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4">
-                 <div className="bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg border border-gray-100 w-48">
-                    <h4 className="font-bold text-gray-800 border-b border-gray-100 pb-2 mb-2">Latest Product</h4>
-                    <div className="space-y-3">
+              {/* Right Column: "Latest Product" Sidebar (Floating) */}
+              <div className="lg:col-span-4 hidden lg:flex justify-end">
+                 <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/20 w-80">
+                    <h4 className="font-bold text-white border-b border-white/20 pb-3 mb-4 text-lg">Latest Product</h4>
+                    <div className="space-y-4">
                       {latestProducts.map(product => (
-                        <div key={product.id} className="bg-secondary/10 p-3 rounded-lg hover:bg-secondary/20 transition-colors cursor-pointer">
-                          <p className="font-bold text-sm text-gray-800">{product.name}</p>
-                          <p className="text-xs text-secondary font-semibold">{product.price}</p>
+                        <div key={product.id} className="bg-black/20 p-4 rounded-xl hover:bg-black/30 transition-colors cursor-pointer border border-white/5 group">
+                          <p className="font-bold text-base text-white group-hover:text-teal-300 transition-colors">{product.name}</p>
+                          <p className="text-sm text-gray-300 font-semibold mt-1">{product.price.toLocaleString()} FCFA</p>
+                          <div className="mt-2 text-xs text-gray-400 uppercase tracking-wider">{CATEGORIES.find(c => c.slug === product.categorySlug)?.title || 'Produit'}</div>
                         </div>
                       ))}
                     </div>
@@ -111,40 +89,21 @@ export default function Home() {
         </section>
 
         {/* Features / Categories Preview */}
-        <section className="py-20 bg-white">
+        <section className="py-24 bg-slate-50">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nos Catégories</h2>
-              <p className="text-gray-500 max-w-2xl mx-auto">Explorez nos différentes sections pour trouver exactement ce dont vous avez besoin.</p>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">Nos Catégories</h2>
+              <p className="text-slate-600 max-w-2xl mx-auto text-lg">Explorez nos différentes sections pour trouver exactement ce dont vous avez besoin.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Formation & Éducation",
-                  desc: "Apprenez de nouvelles compétences.",
-                  color: "bg-indigo-50 text-indigo-600",
-                  link: "/products/formation"
-                },
-                {
-                  title: "Logiciels & Apps",
-                  desc: "Des outils puissants pour vos tâches.",
-                  color: "bg-teal-50 text-teal-600",
-                  link: "/products/logiciels"
-                },
-                {
-                  title: "Ressources Créatives",
-                  desc: "Assets, templates et plus.",
-                  color: "bg-violet-50 text-violet-600",
-                  link: "/products/outils"
-                }
-              ].map((cat, idx) => (
-                <Link href={cat.link} key={idx} className="group p-8 rounded-3xl border border-gray-100 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/10 transition-all bg-white">
-                  <div className={`w-14 h-14 rounded-2xl ${cat.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                    <ShoppingBag className="w-7 h-7" />
+              {CATEGORIES.map((cat, idx) => (
+                <Link href={`/products/${cat.slug}`} key={idx} className="group p-8 rounded-3xl bg-white border border-slate-200 hover:border-indigo-500/30 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300">
+                  <div className={`w-16 h-16 rounded-2xl ${cat.color} bg-opacity-10 text-opacity-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <ShoppingBag className={`w-8 h-8 text-${cat.color.replace('bg-', '')}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{cat.title}</h3>
-                  <p className="text-gray-500">{cat.desc}</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{cat.title}</h3>
+                  <p className="text-slate-500 font-medium leading-relaxed">{cat.description}</p>
                 </Link>
               ))}
             </div>
