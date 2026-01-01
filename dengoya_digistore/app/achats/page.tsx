@@ -25,7 +25,7 @@ export default function CartPage() {
              {/* Background Image */}
              <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/images/cart-bg.jpg')" }}
+                style={{ backgroundImage: "url('https://drive.google.com/uc?export=view&id=1CxPR07Fe9GSFy5hh5Yoic-sJM3p_FCKx')" }}
               >
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-indigo-900/80"></div>

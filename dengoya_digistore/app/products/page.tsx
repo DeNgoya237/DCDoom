@@ -25,7 +25,7 @@ export default function ProductsPage() {
          {/* Background Image */}
          <div
             className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/images/products-bg.jpg')" }}
+            style={{ backgroundImage: "url('https://drive.google.com/uc?export=view&id=1ucjxJ3MCfZaPlCAKm-QbuhyKbCg52xXs')" }}
           >
             {/* Overlay */}
             <div className="absolute inset-0 bg-slate-900/70"></div>

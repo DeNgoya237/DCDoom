@@ -18,7 +18,7 @@ export default function Home() {
           {/* Background Image */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/images/home-bg.jpg')" }}
+            style={{ backgroundImage: "url('https://drive.google.com/uc?export=view&id=1uWWOHB22_1yISVuqkDoqa6eTfpvx5RWl')" }}
           >
             {/* Overlay for readability */}
             <div className="absolute inset-0 bg-gray-900/60 mix-blend-multiply"></div>
