@@ -1,6 +1,7 @@
 'use client';
 
 import { Product } from '../../lib/data';
+import Image from 'next/image';
 import { ShoppingCart } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 
@@ -26,10 +27,12 @@ export default function CategoryProductClient({ products }: CategoryProductClien
     {products.map((product) => (
       <div key={product.id} className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
         <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-t-xl bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-64 relative">
-          <img
+          <Image
             src={product.imageUrl}
             alt={product.name}
-            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <div className="mt-4 flex justify-between px-4">

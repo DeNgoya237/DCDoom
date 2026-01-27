@@ -1,13 +1,31 @@
 import { CreditCard, AlertCircle } from 'lucide-react';
+import Image from 'next/image';
 
 export default function PurchasesPage() {
   return (
-    <div className="bg-slate-50 min-h-screen py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-extrabold text-gray-900 mb-8 flex items-center">
-            <CreditCard className="mr-3" size={32} />
-            Mes Achats
-        </h1>
+    <div className="bg-slate-50 min-h-screen">
+      {/* Hero Section */}
+      <div className="relative bg-indigo-900 py-16 mb-10 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/purchases-bg.jpg"
+              alt="Achats"
+              fill
+              priority
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-indigo-900/70"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center text-white">
+            <CreditCard className="mr-4 text-indigo-300" size={48} />
+            <div>
+                <h1 className="text-4xl font-extrabold tracking-tight">Mes Achats</h1>
+                <p className="text-indigo-200 mt-1">Gérez vos commandes et téléchargements.</p>
+            </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
 
         <div className="bg-white shadow rounded-lg p-10 text-center">
             <div className="flex justify-center mb-4 text-indigo-200">

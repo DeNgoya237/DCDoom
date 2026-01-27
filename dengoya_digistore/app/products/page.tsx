@@ -2,6 +2,7 @@
 
 import { PRODUCTS, CATEGORIES, Product } from '../lib/data';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShoppingCart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
@@ -19,9 +20,26 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-extrabold text-gray-900 mb-8">Nos Produits</h1>
+    <div className="bg-slate-50 min-h-screen">
+      {/* Hero Section */}
+      <div className="relative bg-indigo-800 py-16 mb-10 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/products-bg.jpg"
+              alt="Products"
+              fill
+              priority
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-indigo-900/60"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 className="text-4xl font-extrabold tracking-tight mb-2">Nos Produits</h1>
+            <p className="text-xl text-indigo-100 max-w-2xl mx-auto">Explorez notre catalogue de solutions digitales.</p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
 
         {/* Category Filters */}
         <div className="flex flex-wrap gap-4 mb-10">
@@ -47,10 +65,12 @@ export default function ProductsPage() {
           {PRODUCTS.map((product) => (
             <div key={product.id} className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-t-xl bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-64 relative">
-                <img
+                <Image
                   src={product.imageUrl}
                   alt={product.name}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                  <div className="absolute top-2 right-2 bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded">
                     {CATEGORIES.find(c => c.id === product.category)?.name}

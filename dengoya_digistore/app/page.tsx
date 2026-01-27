@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Star, ShieldCheck, Zap } from "lucide-react";
 import { CATEGORIES } from "./lib/data";
 
@@ -6,8 +7,20 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-indigo-600 text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative text-white py-32 px-4 overflow-hidden">
+        {/* Background Image & Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/home-bg.jpg"
+            alt="DeNgoya Digistore Background"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-indigo-900/80"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
             Bienvenue sur DeNgoya Digistore
           </h1>
