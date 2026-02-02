@@ -33,7 +33,7 @@ export default function PurchasesPage() {
             </div>
             <h2 className="text-xl font-medium text-gray-900 mb-2">Historique des achats à venir</h2>
             <p className="text-gray-500 max-w-md mx-auto">
-                Vous n'avez pas encore effectué d'achats. Une fois que vous aurez commandé des produits, ils apparaîtront ici pour un accès facile.
+                Vous n&apos;avez pas encore effectué d&apos;achats. Une fois que vous aurez commandé des produits, ils apparaîtront ici pour un accès facile.
             </p>
         </div>
       </div>

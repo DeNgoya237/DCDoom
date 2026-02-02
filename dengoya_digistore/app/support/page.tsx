@@ -29,7 +29,7 @@ export default function SupportPage() {
                 <div className="space-y-4">
                     <div>
                         <h3 className="font-medium text-gray-900">Comment télécharger mes produits ?</h3>
-                        <p className="text-sm text-gray-500 mt-1">Vos liens de téléchargement sont envoyés par email immédiatement après l'achat.</p>
+                        <p className="text-sm text-gray-500 mt-1">Vos liens de téléchargement sont envoyés par email immédiatement après l&apos;achat.</p>
                     </div>
                     <div>
                         <h3 className="font-medium text-gray-900">Quels modes de paiement acceptez-vous ?</h3>

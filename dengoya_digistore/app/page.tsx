@@ -25,7 +25,7 @@ export default function Home() {
             Bienvenue sur DeNgoya Digistore
           </h1>
           <p className="text-xl md:text-2xl mb-10 text-indigo-100 max-w-3xl mx-auto">
-            Votre plateforme de référence pour l'achat de produits digitaux de qualité : formations, logiciels et outils créatifs.
+            Votre plateforme de référence pour l&apos;achat de produits digitaux de qualité : formations, logiciels et outils créatifs.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
