@@ -1,42 +1,53 @@
+'use client';
+
 import { PRODUCTS, CATEGORIES, Product } from '../../lib/data';
 import Link from 'next/link';
-import { ShoppingCart, ArrowLeft } from 'lucide-react';
-import CategoryProductClient from './CategoryProductClient';
+import Image from 'next/image';
+import { ShoppingCart } from 'lucide-react';
+import { useCart } from '../../context/CartContext';
+import { useParams } from 'next/navigation';
 
-// This function generates the static params for the dynamic routes
-export async function generateStaticParams() {
-  return CATEGORIES.map((category) => ({
-    category: category.id,
-  }));
-}
+export default function CategoryPage() {
+  const { addToCart } = useCart();
+  const params = useParams();
+  const category = params?.category as string;
 
-export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
-  const { category: categorySlug } = await params;
-  const category = CATEGORIES.find((c) => c.id === categorySlug);
-  const products = PRODUCTS.filter((p) => p.category === categorySlug);
+  const filteredProducts = PRODUCTS.filter(p => p.category === category);
+  const currentCategoryName = CATEGORIES.find(c => c.id === category)?.name || 'Catégorie Inconnue';
 
-  if (!category) {
-    return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="text-center">
-                <h1 className="text-2xl font-bold text-gray-900">Catégorie non trouvée</h1>
-                <Link href="/products" className="text-indigo-600 hover:underline mt-4 block">Retour aux produits</Link>
-            </div>
-        </div>
-    )
-  }
+  const handleAddToCart = (product: Product) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+    });
+    alert(`${product.name} ajouté au panier !`);
+  };
 
   return (
-    <div className="bg-slate-50 min-h-screen py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-             <Link href="/products" className="inline-flex items-center text-sm text-gray-500 hover:text-indigo-600 mb-4 transition-colors">
-                <ArrowLeft size={16} className="mr-1"/> Retour à tous les produits
-             </Link>
-             <h1 className="text-3xl font-extrabold text-gray-900">{category.name}</h1>
+    <div className="bg-slate-50 min-h-screen">
+      {/* Hero Section */}
+      <div className="relative bg-indigo-800 py-16 mb-10 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/products-bg.jpg"
+              alt="Products"
+              fill
+              priority
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-indigo-900/60"></div>
         </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 className="text-4xl font-extrabold tracking-tight mb-2">{currentCategoryName}</h1>
+            <p className="text-xl text-indigo-100 max-w-2xl mx-auto">Découvrez nos produits dans cette catégorie.</p>
+        </div>
+      </div>
 
-        {/* Category Filters (Active state for current category) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+
+        {/* Category Filters */}
         <div className="flex flex-wrap gap-4 mb-10">
             <Link
                 href="/products"
@@ -49,8 +60,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                  key={cat.id}
                  href={`/products/${cat.id}`}
                  className={`px-4 py-2 rounded-full font-medium transition-colors ${
-                    cat.id === categorySlug
-                    ? 'bg-indigo-600 text-white'
+                    cat.id === category
+                    ? 'bg-indigo-600 text-white hover:bg-indigo-700'
                     : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-indigo-500 hover:text-indigo-600'
                  }`}
              >
@@ -60,13 +71,53 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         </div>
 
         {/* Product Grid */}
-        {products.length > 0 ? (
-           <CategoryProductClient products={products} />
-        ) : (
-             <div className="text-center py-20">
-                <p className="text-gray-500 text-lg">Aucun produit disponible dans cette catégorie pour le moment.</p>
-             </div>
-        )}
+        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+          {filteredProducts.length === 0 ? (
+            <div className="col-span-full text-center py-10">
+                <p className="text-gray-500 text-lg">Aucun produit trouvé dans cette catégorie.</p>
+            </div>
+          ) : (
+            filteredProducts.map((product) => (
+            <div key={product.id} className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-t-xl bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-64 relative">
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                 <div className="absolute top-2 right-2 bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded">
+                    {currentCategoryName}
+                 </div>
+              </div>
+              <div className="mt-4 flex justify-between px-4">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    <a href="#">
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {product.name}
+                    </a>
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                </div>
+              </div>
+              <div className="mt-auto p-4 flex items-center justify-between">
+                 <p className="text-lg font-bold text-indigo-600">{product.price.toLocaleString('fr-FR')} FCFA</p>
+                 <button
+                    onClick={(e) => {
+                        e.preventDefault();
+                        handleAddToCart(product);
+                    }}
+                    className="z-10 p-2 rounded-full bg-indigo-100 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"
+                    title="Ajouter au panier"
+                 >
+                    <ShoppingCart size={20} />
+                 </button>
+              </div>
+            </div>
+          )))}
+        </div>
       </div>
     </div>
   );
